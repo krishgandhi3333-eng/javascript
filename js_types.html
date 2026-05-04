@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buffed Form</title>
+    <style>
+        body {
+            /* Centering everything */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #026b48 0%, #013a27 100%);
+            background-image: url(https://i.pinimg.com/736x/35/4e/41/354e41b970004cac05cbe77bbc681ad8.jpg);
+        
+            background-repeat: no-repeat;
+            background-size: cover;
+background-position: center;
+background-origin: content-box;
+S
+        }
+
+        .form-container {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 30px;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            color: white;
+            width: 300px;
+        }
+
+        .input-group {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 0.9rem;
+            font-weight: bold;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background: rgba(255, 255, 255, 0.9);
+            box-sizing: border-box; /* Prevents input from overflowing */
+            transition: transform 0.2s;
+        }
+
+        input:focus {
+            outline: 2px solid #00ffaa;
+            transform: scale(1.02);
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            margin-top: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #00ffaa;
+            color: #013a27;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #ffffff;
+            box-shadow: 0 0 15px #00ffaa;
+            transform: translateY(-2px);
+        }
+
+        #demo {
+            margin-top: 15px;
+            font-size: 0.85rem;
+            color: #afffe3;
+            font-weight: bold;
+            min-height: 1.2em;
+        }
+    </style>
+</head>
+<body>
+
+<div class="form-container">
+    <form>
+        <div class="input-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" placeholder="Enter your name">
+        </div>
+
+        <div class="input-group">
+            <label for="no">Age</label>
+            <input type="number" id="no" placeholder="Enter age">
+        </div>
+
+        <div class="input-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" placeholder="example@mail.com">
+        </div>
+
+        <p id="demo"></p>
+        
+        <button type="button" onclick="submitForm()">Submit</button>
+    </form>
+</div>
+
+<script>
+    function submitForm() {
+        document.getElementById("demo").innerHTML = "✓ Your Response has been Submitted";
+        window.alert("Submission Succesful");
+    }
+    
+</script>
+
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document Object Model | Javascript</title>
+</head>
+
+<body>
+
+    <h1 id="heading1">Welcome to the world of Javascript</h1>
+    <h1 id="heading2">Welcome to the world of Javascript</h1>
+
+    <div id="container">
+
+    </div>
+    <button onclick="addImg()">Add Image</button>
+    <button onclick="resizeImg()">Resize</button>
+    <button onclick="deleteImg()">Delete</button>
+
+    <input type="file" id="image_upload" style="display: none;">
+
+    <script>
+        let h1 = document.querySelectorAll("h1")
+        h1[0].style.color = "red"
+        h1[0].style.wordSpacing = "5px"
+        h1[0].style.textDecoration = "underline"
+
+        var img = [];
+        var pos = 0;
+
+        // We set up the listener ONCE outside the function
+        var input = document.getElementById("image_upload");
+
+        input.onchange = function () {
+            var file = input.files[0];
+
+            if (file) {
+                var reader = new FileReader()
+
+                reader.onload = function (e) {
+                    img[pos] = document.createElement("img")
+                    img[pos].src = e.target.result
+
+                    document.getElementById("container").appendChild(img[pos])
+                    pos++
+                };
+
+                reader.readAsDataURL(file);
+
+            }
+
+        };
+
+
+        function addImg() {
+            // Just trigger the click, the 'onchange' above handles the rest
+            input.click();
+        }
+
+        function resizeImg() {
+            for (var i = 0; i < img.length; i++) {
+                if (img[i]) {
+                    img[i].style.width = "300px";
+                    img[i].style.height = "200px";
+                }
+            }
+        }
+
+        function deleteImg() {
+            if (img.length > 0) {
+                for (var i = 0; i < img.length; i++) {
+                    if (img[i]) {
+                        img[i].remove();
+                    }
+                }
+                img = [];
+                pos = 0;
+            }
+        }
+    </script>
+
+</body>
+
+</html>
